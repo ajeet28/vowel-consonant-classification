@@ -33,6 +33,7 @@ def train():
     train_dir = config['train']['data']
     log_step = config['log_step']
     num_epochs = config['num_epochs']
+    lr = config['learning_rate']
 
     # Set the random seed
     torch.manual_seed(random_seed)
@@ -62,13 +63,13 @@ def train():
     val_targets = val_targets.to(device)
     for epoch_idx in range(num_epochs):
         print(f'Epoch Idx: {epoch_idx}')
-        loss = _train_one_epoch(classifier, criterion, optimizer, val_batch, val_targets, log_step=log_step)
+        loss = _train_one_epoch(classifier, train_loader, criterion, optimizer, val_batch, val_targets, log_step=log_step)
         loss_profile.extend(loss)
 
 
-def _train_one_epoch(model, criterion, optimizer, val_batch, val_targets, log_step=50):
+def _train_one_epoch(model, loader, criterion, optimizer, val_batch, val_targets, log_step=50):
     loss_profile = []
-    for idx, (input_batch, target_batch) in enumerate(train_loader):
+    for idx, (input_batch, target_batch) in enumerate(loader):
         model.train()
         optimizer.zero_grad()
 
