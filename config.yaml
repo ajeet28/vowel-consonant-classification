@@ -1,0 +1,14 @@
+random_seed: 2019
+learning_rate: 0.001
+num_epochs: 5
+test_split: 0.05
+val_split: 0.05
+num_vowels: 13
+num_consonants: 19
+batch_size: 64
+log_step: 50
+train:
+  data: 'classifier/data/tamil/train.zip'
+  pretrained_model: 'classifier/results/classifier_Mixed_incepv3_5c_branch_pool.pt'
+test:
+  data: 'classifier/data/hindi/test.zip'

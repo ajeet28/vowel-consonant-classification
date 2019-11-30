@@ -13,11 +13,11 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 
 @click.group()
-def cli():
+def train_group():
     pass
 
 
-@cli.command()
+@train_group.command()
 def train():
     """Trains a vowel consonant classifier
     """
@@ -101,7 +101,7 @@ def _train_one_epoch(model, loader, criterion, optimizer, val_batch, val_targets
     return loss_profile
 
 
-@cli.command()
+@train_group.command()
 def sanity_check_model():
     """
     Ensures that the forward pass through the classifier works
@@ -121,4 +121,4 @@ def sanity_check_model():
 
 
 if __name__ == "__main__":
-    cli()
+    train_group()

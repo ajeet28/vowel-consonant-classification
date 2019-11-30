@@ -1,3 +1,5 @@
+import click
+
 import torch
 from tqdm import tqdm
 from classifier.models.character_classifier import CharacterClassifierInceptionV3
@@ -5,7 +7,12 @@ from classifier.dataset.lang_dataset import LangDataset
 from classifier.util import load_config, get_transforms
 
 
-@click.command()
+@click.group()
+def test_group():
+    pass
+
+
+@test_group.command()
 @click.argument('model_path')
 @click.argument('test_dataset_path')
 def eval(model_path, test_dataset_path):
@@ -40,3 +47,7 @@ def _compute_accuracy(dataset, model):
             num_correct += 1
     accuracy = num_correct / total_samples
     return accuracy
+
+
+if __name__ == "__main__":
+    test_group()

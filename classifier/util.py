@@ -13,7 +13,7 @@ def get_transforms(train=False):
 
 
 def load_config(config_path):
-    
+
     with open(config_path, 'r') as reader:
         config = yaml.safe_load(reader)
     return config

@@ -24,6 +24,7 @@ class LangDataset(Dataset):
         self.transform = transform
 
         images = os.listdir(train_dir)
+        print(f'Reading images from directory: {train_dir}')
         for image in tqdm(images):
             image_path = os.path.join(train_dir, image)
             img = Image.open(image_path).convert('RGB')
