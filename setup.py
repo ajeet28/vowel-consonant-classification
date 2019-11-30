@@ -9,6 +9,13 @@ if sys.version_info[0] != 3 or sys.version_info[1] < 6:
 
 requirements = [
     # Put package requirements here
+    "torch",
+    "torchvision",
+    "pillow",
+    "numpy",
+    "matplotlib",
+    "tqdm",
+    "click",
 ]
 
 dependency_links = [
@@ -40,15 +47,20 @@ def forbid_publish():
 forbid_publish()
 
 setup(
-    name='Vowel Consonant Classifier',
+    name='vc',
     description='Classifies vowels and consonants in vernacular languages',
     version="1.0.0",
-    url='https://github.com/lexentbio/sawyer',
+    url='https://github.com/kpandey008/vowel-consonant-classification',
     author="Kushagra Pandey",
     author_email='kpandeyce008@gmail.com',
     install_requires=requirements,
     extras_require={
         'dev': dev_requirements
+    },
+    entry_points={
+        'console_scripts': [
+            'vc = classifier.main:cli',
+        ],
     },
     dependency_links=dependency_links,
     include_package_data=True,

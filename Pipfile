@@ -7,13 +7,7 @@ verify_ssl = true
 pycodestyle = "*"
 
 [packages]
-torch = "*"
-torchvision = "*"
-pillow = "*"
-numpy = "*"
-matplotlib = "*"
-tqdm = "*"
-click = "*"
+vc = {editable = true,path = "."}
 
 [requires]
 python_version = "3.6"
