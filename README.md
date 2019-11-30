@@ -49,7 +49,7 @@ The file `config.yaml` stores the configuration of the classifier.
 ##  3. <a name='Results'></a>Results
 
 ###  3.1. <a name='ModelArchitecture'></a>Model Architecture
-Used the InceptionV3 network for fine-tuning on the dataset.
+Used the InceptionV3 network for fine-tuning on the dataset hosted at https://www.kaggle.com/c/padhai-tamil-vowel-consonant-classification/data
 
 The architecture is shown below:
 
